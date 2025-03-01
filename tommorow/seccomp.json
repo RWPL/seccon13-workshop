@@ -1,0 +1,43 @@
+{
+    "defaultAction": "SCMP_ACT_ALLOW",
+    "syscalls": [
+      {
+        "names": [
+          "unlink",
+          "unlinkat"
+        ],
+        "action": "SCMP_ACT_ERRNO"
+      },
+      {
+        "names": [
+          "mount",
+          "umount2",
+          "pivot_root",
+          "swapon",
+          "swapoff",
+          "reboot",
+          "kexec_load",
+          "init_module",
+          "delete_module"
+        ],
+        "action": "SCMP_ACT_KILL"
+      },
+      {
+        "names": ["kill"],
+        "action": "SCMP_ACT_KILL",
+        "args": [
+          {
+            "index": 0,
+            "value": 1,
+            "op": "SCMP_CMP_EQ"
+          },
+          {
+            "index": 1,
+            "value": 15,
+            "op": "SCMP_CMP_EQ"
+          }
+        ]
+      }
+    ]
+  }
+  

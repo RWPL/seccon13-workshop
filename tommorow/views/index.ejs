@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="robots" content="noindex,nofollow">
+  <title>Home</title>
+  <style>
+    body {
+      font-family: sans-serif;
+      background-color: #f0f2f5;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      margin: 0;
+    }
+
+    .container {
+      background-color: #fff;
+      padding: 40px;
+      border-radius: 8px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      width: 80%; /* ログイン画面より広く */
+      max-width: 800px; /* 最大幅を設定 */
+    }
+
+    h1 {
+      text-align: center;
+      color: #3C2861;
+      margin-bottom: 30px;
+    }
+
+    .message {
+      text-align: center;
+      margin-bottom: 20px;
+      font-size: 18px;
+      color: #333;
+    }
+
+    .button-container {
+      text-align: center; /* ボタンを中央揃え */
+    }
+
+    .button {
+      display: inline-block; /* インラインブロック要素に */
+      padding: 10px 20px;
+      background-color: #3C2861;
+      color: #fff;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      font-size: 16px;
+      text-decoration: none; /* リンクの下線を消す */
+      transition: background-color 0.3s ease, transform 0.2s ease;
+      margin: 0 10px; /* ボタン間のスペース */
+    }
+
+    .button:hover {
+      background-color: #5a3f87;
+      transform: translateY(-2px);
+    }
+
+    .button:active {
+      background-color: #2a1c45;
+      transform: translateY(1px);
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Hello :)</h1>
+    <p class="message"><%- links %></p>
+    <!-- robots.txt -->
+  </div>
+</body>
+</html>

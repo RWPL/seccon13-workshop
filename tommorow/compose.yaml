@@ -1,0 +1,36 @@
+services:
+  app:
+    mem_limit: 1g
+    build: .
+    cap_drop:
+      - ALL
+    security_opt:
+      - no-new-privileges:true
+      - seccomp:seccomp.json
+    restart: always
+    ports:
+      - "3000:3000"
+    depends_on:
+      - db
+    environment:
+      - DB_HOST=db
+      - DB_USER=dbuser
+      - DB_PASSWORD=MuZhlo9n%8!G
+      - DB_NAME=rwpl
+      - SESSION_SECRET=verysecretkey
+    volumes:
+      - /app/node_modules
+  db:
+    image: mysql:latest
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: rootpassword
+      MYSQL_DATABASE: rwpl
+      MYSQL_USER: dbuser
+      MYSQL_PASSWORD: MuZhlo9n%8!G
+    volumes:
+      - dbdata:/var/lib/mysql
+      - ./seed.sql:/docker-entrypoint-initdb.d/seed.sql:ro
+
+volumes:
+  dbdata:
