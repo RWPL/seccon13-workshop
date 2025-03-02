@@ -7,6 +7,7 @@ RUN apt-get update && \
 WORKDIR /opt/challenge
 
 COPY chal .
+RUN chmod +x chal
 
 EXPOSE 4000
 
